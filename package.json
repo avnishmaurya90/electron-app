@@ -1,0 +1,47 @@
+{
+  "name": "electron-app",
+  "version": "1.0.0",
+  "description": "Sample of Desktop Application Using JavaScript",
+  "main": "index.js",
+  "build": {
+    "appId": "com.ankit.electron",
+    "productName": "electron-app",
+    "directories": {
+      "output": "release",
+      "buildResources": "dist"
+    },
+    "asar": true,
+    "win": {
+      "icon": "./assets/ankit.png",
+      "target": [
+        "nsis"
+      ]
+    },
+    "nsis": {
+      "runAfterFinish": false
+    }
+  },
+  "scripts": {
+    "start": "electron .",
+    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/favicon.ico --prune=true --out=release-builds",
+    "package-win": "electron-packager . electron-app --overwrite --platform=win32 --arch=all --prune=true --icon=assets/favicon.ico --out=release-builds",
+    "package-linux": "electron-packager . electron-app --overwrite --asar=true --platform=linux --arch=x64 --icon=assets/favicon.ico --prune=true --out=release-builds",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ankitmanchandaa/electron-app.git"
+  },
+  "author": "Ankit Manchanda",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ankitmanchandaa/electron-app/issues"
+  },
+  "homepage": "https://github.com/ankitmanchandaa/electron-app#readme",
+  "devDependencies": {
+    "electron": "^9.2.0",
+    "electron-builder": "^21.2.0",
+    "electron-packager": "^14.0.5"
+  }
+}
